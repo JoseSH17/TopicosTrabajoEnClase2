@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ce37d143d0224ceea61ca43505fc83c1" Name="Diagram1">
+        <EntityTypeShape EntityType="ExamenAnalisisModel.Canton" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExamenAnalisisModel.Continente" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExamenAnalisisModel.DiasFeriadosAnuale" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExamenAnalisisModel.Distrito" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExamenAnalisisModel.Estacionamiento" Width="1.5" PointX="12" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExamenAnalisisModel.Fabricante" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExamenAnalisisModel.Pai" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExamenAnalisisModel.Parqueo" Width="1.5" PointX="9.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExamenAnalisisModel.Provincia" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExamenAnalisisModel.RegionContinente" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExamenAnalisisModel.TipoVehiculo" Width="1.5" PointX="7.5" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExamenAnalisisModel.Vehiculo" Width="1.5" PointX="9.75" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="ExamenAnalisisModel.FK__Canton__IDProvin__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="ExamenAnalisisModel.FK__Distrito__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="ExamenAnalisisModel.FK__RegionCon__IDCon__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="ExamenAnalisisModel.FK__Parqueo__Consecu__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="ExamenAnalisisModel.FK__Estaciona__IDPar__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="ExamenAnalisisModel.FK__Estaciona__IDVeh__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="ExamenAnalisisModel.FK__Fabricant__IDPai__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="ExamenAnalisisModel.FK__Vehiculo__IDFabr__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="ExamenAnalisisModel.FK__Pais__IDRegionCo__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="ExamenAnalisisModel.FK__Vehiculo__IDTipo__59FA5E80" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

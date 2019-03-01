@@ -1,0 +1,741 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ExamenAnalisisModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Canton">
+          <Key>
+            <PropertyRef Name="IDProvincia" />
+            <PropertyRef Name="IDCanton" />
+          </Key>
+          <Property Name="IDProvincia" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="IDCanton" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Continente">
+          <Key>
+            <PropertyRef Name="IDContinente" />
+          </Key>
+          <Property Name="IDContinente" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DiasFeriadosAnuales">
+          <Key>
+            <PropertyRef Name="IdDiaFeriado" />
+          </Key>
+          <Property Name="IdDiaFeriado" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="MesFeriado" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="DiaFeriado" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="NombreFeriado" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Distrito">
+          <Key>
+            <PropertyRef Name="ConsecutivoDistrito" />
+          </Key>
+          <Property Name="ConsecutivoDistrito" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="IDProvincia" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="IDCanton" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Estacionamiento">
+          <Key>
+            <PropertyRef Name="IDParqueo" />
+            <PropertyRef Name="IDVehiculo" />
+            <PropertyRef Name="FechaHoraIngreso" />
+          </Key>
+          <Property Name="IDParqueo" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="IDVehiculo" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="FechaHoraIngreso" Type="datetime" Nullable="false" />
+          <Property Name="FechaHoraSalida" Type="datetime" />
+          <Property Name="TarifaBase" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Ganancia" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Mantenimiento" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="ImpVentas" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="TotalACobrar" Type="numeric" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="Fabricante">
+          <Key>
+            <PropertyRef Name="IDFabricante" />
+          </Key>
+          <Property Name="IDFabricante" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="NombreFabricante" Type="varchar" MaxLength="50" />
+          <Property Name="IDPais" Type="numeric" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityType Name="Pais">
+          <Key>
+            <PropertyRef Name="IDPais" />
+          </Key>
+          <Property Name="IDPais" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="NombrePais" Type="varchar" MaxLength="50" />
+          <Property Name="AbreviaturaPais" Type="varchar" MaxLength="5" />
+          <Property Name="IDRegionContinente" Type="numeric" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityType Name="Parqueo">
+          <Key>
+            <PropertyRef Name="IDParqueo" />
+          </Key>
+          <Property Name="IDParqueo" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ConsecutivoDistrito" Type="numeric" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityType Name="Provincia">
+          <Key>
+            <PropertyRef Name="IDProvincia" />
+          </Key>
+          <Property Name="IDProvincia" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RegionContinente">
+          <Key>
+            <PropertyRef Name="IDRegionContinente" />
+          </Key>
+          <Property Name="IDRegionContinente" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="IDContinente" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TipoVehiculo">
+          <Key>
+            <PropertyRef Name="IDTipoVehiculo" />
+          </Key>
+          <Property Name="IDTipoVehiculo" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Vehiculo">
+          <Key>
+            <PropertyRef Name="IDVehiculo" />
+          </Key>
+          <Property Name="IDVehiculo" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Placa" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="Ano" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="IDTipoVehiculo" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="IDFabricante" Type="numeric" Precision="10" Scale="0" />
+        </EntityType>
+        <Association Name="FK__Canton__IDProvin__5BE2A6F2">
+          <End Role="Provincia" Type="Self.Provincia" Multiplicity="1" />
+          <End Role="Canton" Type="Self.Canton" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provincia">
+              <PropertyRef Name="IDProvincia" />
+            </Principal>
+            <Dependent Role="Canton">
+              <PropertyRef Name="IDProvincia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Distrito__5CD6CB2B">
+          <End Role="Canton" Type="Self.Canton" Multiplicity="0..1" />
+          <End Role="Distrito" Type="Self.Distrito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Canton">
+              <PropertyRef Name="IDProvincia" />
+              <PropertyRef Name="IDCanton" />
+            </Principal>
+            <Dependent Role="Distrito">
+              <PropertyRef Name="IDProvincia" />
+              <PropertyRef Name="IDCanton" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estaciona__IDPar__5FB337D6">
+          <End Role="Parqueo" Type="Self.Parqueo" Multiplicity="1" />
+          <End Role="Estacionamiento" Type="Self.Estacionamiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Parqueo">
+              <PropertyRef Name="IDParqueo" />
+            </Principal>
+            <Dependent Role="Estacionamiento">
+              <PropertyRef Name="IDParqueo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estaciona__IDVeh__5EBF139D">
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
+          <End Role="Estacionamiento" Type="Self.Estacionamiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculo">
+              <PropertyRef Name="IDVehiculo" />
+            </Principal>
+            <Dependent Role="Estacionamiento">
+              <PropertyRef Name="IDVehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Fabricant__IDPai__59063A47">
+          <End Role="Pais" Type="Self.Pais" Multiplicity="0..1" />
+          <End Role="Fabricante" Type="Self.Fabricante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="IDPais" />
+            </Principal>
+            <Dependent Role="Fabricante">
+              <PropertyRef Name="IDPais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pais__IDRegionCo__5812160E">
+          <End Role="RegionContinente" Type="Self.RegionContinente" Multiplicity="0..1" />
+          <End Role="Pais" Type="Self.Pais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegionContinente">
+              <PropertyRef Name="IDRegionContinente" />
+            </Principal>
+            <Dependent Role="Pais">
+              <PropertyRef Name="IDRegionContinente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Parqueo__Consecu__5DCAEF64">
+          <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
+          <End Role="Parqueo" Type="Self.Parqueo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Distrito">
+              <PropertyRef Name="ConsecutivoDistrito" />
+            </Principal>
+            <Dependent Role="Parqueo">
+              <PropertyRef Name="ConsecutivoDistrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RegionCon__IDCon__571DF1D5">
+          <End Role="Continente" Type="Self.Continente" Multiplicity="1" />
+          <End Role="RegionContinente" Type="Self.RegionContinente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Continente">
+              <PropertyRef Name="IDContinente" />
+            </Principal>
+            <Dependent Role="RegionContinente">
+              <PropertyRef Name="IDContinente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vehiculo__IDFabr__5AEE82B9">
+          <End Role="Fabricante" Type="Self.Fabricante" Multiplicity="0..1" />
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fabricante">
+              <PropertyRef Name="IDFabricante" />
+            </Principal>
+            <Dependent Role="Vehiculo">
+              <PropertyRef Name="IDFabricante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vehiculo__IDTipo__59FA5E80">
+          <End Role="TipoVehiculo" Type="Self.TipoVehiculo" Multiplicity="0..1" />
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoVehiculo">
+              <PropertyRef Name="IDTipoVehiculo" />
+            </Principal>
+            <Dependent Role="Vehiculo">
+              <PropertyRef Name="IDTipoVehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ExamenAnalisisModelStoreContainer">
+          <EntitySet Name="Canton" EntityType="Self.Canton" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Continente" EntityType="Self.Continente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DiasFeriadosAnuales" EntityType="Self.DiasFeriadosAnuales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Distrito" EntityType="Self.Distrito" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estacionamiento" EntityType="Self.Estacionamiento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fabricante" EntityType="Self.Fabricante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Parqueo" EntityType="Self.Parqueo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Provincia" EntityType="Self.Provincia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegionContinente" EntityType="Self.RegionContinente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoVehiculo" EntityType="Self.TipoVehiculo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Canton__IDProvin__5BE2A6F2" Association="Self.FK__Canton__IDProvin__5BE2A6F2">
+            <End Role="Provincia" EntitySet="Provincia" />
+            <End Role="Canton" EntitySet="Canton" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Distrito__5CD6CB2B" Association="Self.FK__Distrito__5CD6CB2B">
+            <End Role="Canton" EntitySet="Canton" />
+            <End Role="Distrito" EntitySet="Distrito" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estaciona__IDPar__5FB337D6" Association="Self.FK__Estaciona__IDPar__5FB337D6">
+            <End Role="Parqueo" EntitySet="Parqueo" />
+            <End Role="Estacionamiento" EntitySet="Estacionamiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estaciona__IDVeh__5EBF139D" Association="Self.FK__Estaciona__IDVeh__5EBF139D">
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+            <End Role="Estacionamiento" EntitySet="Estacionamiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Fabricant__IDPai__59063A47" Association="Self.FK__Fabricant__IDPai__59063A47">
+            <End Role="Pais" EntitySet="Pais" />
+            <End Role="Fabricante" EntitySet="Fabricante" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pais__IDRegionCo__5812160E" Association="Self.FK__Pais__IDRegionCo__5812160E">
+            <End Role="RegionContinente" EntitySet="RegionContinente" />
+            <End Role="Pais" EntitySet="Pais" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Parqueo__Consecu__5DCAEF64" Association="Self.FK__Parqueo__Consecu__5DCAEF64">
+            <End Role="Distrito" EntitySet="Distrito" />
+            <End Role="Parqueo" EntitySet="Parqueo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegionCon__IDCon__571DF1D5" Association="Self.FK__RegionCon__IDCon__571DF1D5">
+            <End Role="Continente" EntitySet="Continente" />
+            <End Role="RegionContinente" EntitySet="RegionContinente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vehiculo__IDFabr__5AEE82B9" Association="Self.FK__Vehiculo__IDFabr__5AEE82B9">
+            <End Role="Fabricante" EntitySet="Fabricante" />
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vehiculo__IDTipo__59FA5E80" Association="Self.FK__Vehiculo__IDTipo__59FA5E80">
+            <End Role="TipoVehiculo" EntitySet="TipoVehiculo" />
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ExamenAnalisisModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Canton">
+          <Key>
+            <PropertyRef Name="IDProvincia" />
+            <PropertyRef Name="IDCanton" />
+          </Key>
+          <Property Name="IDProvincia" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="IDCanton" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Provincia" Relationship="Self.FK__Canton__IDProvin__5BE2A6F2" FromRole="Canton" ToRole="Provincia" />
+          <NavigationProperty Name="Distritoes" Relationship="Self.FK__Distrito__5CD6CB2B" FromRole="Canton" ToRole="Distrito" />
+        </EntityType>
+        <EntityType Name="Continente">
+          <Key>
+            <PropertyRef Name="IDContinente" />
+          </Key>
+          <Property Name="IDContinente" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RegionContinentes" Relationship="Self.FK__RegionCon__IDCon__571DF1D5" FromRole="Continente" ToRole="RegionContinente" />
+        </EntityType>
+        <EntityType Name="DiasFeriadosAnuale">
+          <Key>
+            <PropertyRef Name="IdDiaFeriado" />
+          </Key>
+          <Property Name="IdDiaFeriado" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="MesFeriado" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="DiaFeriado" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="NombreFeriado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Distrito">
+          <Key>
+            <PropertyRef Name="ConsecutivoDistrito" />
+          </Key>
+          <Property Name="ConsecutivoDistrito" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="IDProvincia" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="IDCanton" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Canton" Relationship="Self.FK__Distrito__5CD6CB2B" FromRole="Distrito" ToRole="Canton" />
+          <NavigationProperty Name="Parqueos" Relationship="Self.FK__Parqueo__Consecu__5DCAEF64" FromRole="Distrito" ToRole="Parqueo" />
+        </EntityType>
+        <EntityType Name="Estacionamiento">
+          <Key>
+            <PropertyRef Name="IDParqueo" />
+            <PropertyRef Name="IDVehiculo" />
+            <PropertyRef Name="FechaHoraIngreso" />
+          </Key>
+          <Property Name="IDParqueo" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="IDVehiculo" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="FechaHoraIngreso" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaHoraSalida" Type="DateTime" Precision="3" />
+          <Property Name="TarifaBase" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Ganancia" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Mantenimiento" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ImpVentas" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="TotalACobrar" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Parqueo" Relationship="Self.FK__Estaciona__IDPar__5FB337D6" FromRole="Estacionamiento" ToRole="Parqueo" />
+          <NavigationProperty Name="Vehiculo" Relationship="Self.FK__Estaciona__IDVeh__5EBF139D" FromRole="Estacionamiento" ToRole="Vehiculo" />
+        </EntityType>
+        <EntityType Name="Fabricante">
+          <Key>
+            <PropertyRef Name="IDFabricante" />
+          </Key>
+          <Property Name="IDFabricante" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="NombreFabricante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDPais" Type="Decimal" Precision="10" Scale="0" />
+          <NavigationProperty Name="Pai" Relationship="Self.FK__Fabricant__IDPai__59063A47" FromRole="Fabricante" ToRole="Pais" />
+          <NavigationProperty Name="Vehiculoes" Relationship="Self.FK__Vehiculo__IDFabr__5AEE82B9" FromRole="Fabricante" ToRole="Vehiculo" />
+        </EntityType>
+        <EntityType Name="Pai">
+          <Key>
+            <PropertyRef Name="IDPais" />
+          </Key>
+          <Property Name="IDPais" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="NombrePais" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AbreviaturaPais" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="IDRegionContinente" Type="Decimal" Precision="10" Scale="0" />
+          <NavigationProperty Name="Fabricantes" Relationship="Self.FK__Fabricant__IDPai__59063A47" FromRole="Pais" ToRole="Fabricante" />
+          <NavigationProperty Name="RegionContinente" Relationship="Self.FK__Pais__IDRegionCo__5812160E" FromRole="Pais" ToRole="RegionContinente" />
+        </EntityType>
+        <EntityType Name="Parqueo">
+          <Key>
+            <PropertyRef Name="IDParqueo" />
+          </Key>
+          <Property Name="IDParqueo" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ConsecutivoDistrito" Type="Decimal" Precision="10" Scale="0" />
+          <NavigationProperty Name="Distrito" Relationship="Self.FK__Parqueo__Consecu__5DCAEF64" FromRole="Parqueo" ToRole="Distrito" />
+          <NavigationProperty Name="Estacionamientoes" Relationship="Self.FK__Estaciona__IDPar__5FB337D6" FromRole="Parqueo" ToRole="Estacionamiento" />
+        </EntityType>
+        <EntityType Name="Provincia">
+          <Key>
+            <PropertyRef Name="IDProvincia" />
+          </Key>
+          <Property Name="IDProvincia" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cantons" Relationship="Self.FK__Canton__IDProvin__5BE2A6F2" FromRole="Provincia" ToRole="Canton" />
+        </EntityType>
+        <EntityType Name="RegionContinente">
+          <Key>
+            <PropertyRef Name="IDRegionContinente" />
+          </Key>
+          <Property Name="IDRegionContinente" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="IDContinente" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Continente" Relationship="Self.FK__RegionCon__IDCon__571DF1D5" FromRole="RegionContinente" ToRole="Continente" />
+          <NavigationProperty Name="Pais" Relationship="Self.FK__Pais__IDRegionCo__5812160E" FromRole="RegionContinente" ToRole="Pais" />
+        </EntityType>
+        <EntityType Name="TipoVehiculo">
+          <Key>
+            <PropertyRef Name="IDTipoVehiculo" />
+          </Key>
+          <Property Name="IDTipoVehiculo" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Vehiculoes" Relationship="Self.FK__Vehiculo__IDTipo__59FA5E80" FromRole="TipoVehiculo" ToRole="Vehiculo" />
+        </EntityType>
+        <EntityType Name="Vehiculo">
+          <Key>
+            <PropertyRef Name="IDVehiculo" />
+          </Key>
+          <Property Name="IDVehiculo" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Placa" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="Ano" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="IDTipoVehiculo" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="IDFabricante" Type="Decimal" Precision="10" Scale="0" />
+          <NavigationProperty Name="Estacionamientoes" Relationship="Self.FK__Estaciona__IDVeh__5EBF139D" FromRole="Vehiculo" ToRole="Estacionamiento" />
+          <NavigationProperty Name="Fabricante" Relationship="Self.FK__Vehiculo__IDFabr__5AEE82B9" FromRole="Vehiculo" ToRole="Fabricante" />
+          <NavigationProperty Name="TipoVehiculo" Relationship="Self.FK__Vehiculo__IDTipo__59FA5E80" FromRole="Vehiculo" ToRole="TipoVehiculo" />
+        </EntityType>
+        <Association Name="FK__Canton__IDProvin__5BE2A6F2">
+          <End Role="Provincia" Type="Self.Provincia" Multiplicity="1" />
+          <End Role="Canton" Type="Self.Canton" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provincia">
+              <PropertyRef Name="IDProvincia" />
+            </Principal>
+            <Dependent Role="Canton">
+              <PropertyRef Name="IDProvincia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Distrito__5CD6CB2B">
+          <End Role="Canton" Type="Self.Canton" Multiplicity="0..1" />
+          <End Role="Distrito" Type="Self.Distrito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Canton">
+              <PropertyRef Name="IDProvincia" />
+              <PropertyRef Name="IDCanton" />
+            </Principal>
+            <Dependent Role="Distrito">
+              <PropertyRef Name="IDProvincia" />
+              <PropertyRef Name="IDCanton" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RegionCon__IDCon__571DF1D5">
+          <End Role="Continente" Type="Self.Continente" Multiplicity="1" />
+          <End Role="RegionContinente" Type="Self.RegionContinente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Continente">
+              <PropertyRef Name="IDContinente" />
+            </Principal>
+            <Dependent Role="RegionContinente">
+              <PropertyRef Name="IDContinente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Parqueo__Consecu__5DCAEF64">
+          <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
+          <End Role="Parqueo" Type="Self.Parqueo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Distrito">
+              <PropertyRef Name="ConsecutivoDistrito" />
+            </Principal>
+            <Dependent Role="Parqueo">
+              <PropertyRef Name="ConsecutivoDistrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estaciona__IDPar__5FB337D6">
+          <End Role="Parqueo" Type="Self.Parqueo" Multiplicity="1" />
+          <End Role="Estacionamiento" Type="Self.Estacionamiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Parqueo">
+              <PropertyRef Name="IDParqueo" />
+            </Principal>
+            <Dependent Role="Estacionamiento">
+              <PropertyRef Name="IDParqueo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estaciona__IDVeh__5EBF139D">
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
+          <End Role="Estacionamiento" Type="Self.Estacionamiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculo">
+              <PropertyRef Name="IDVehiculo" />
+            </Principal>
+            <Dependent Role="Estacionamiento">
+              <PropertyRef Name="IDVehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Fabricant__IDPai__59063A47">
+          <End Role="Pais" Type="Self.Pai" Multiplicity="0..1" />
+          <End Role="Fabricante" Type="Self.Fabricante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="IDPais" />
+            </Principal>
+            <Dependent Role="Fabricante">
+              <PropertyRef Name="IDPais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vehiculo__IDFabr__5AEE82B9">
+          <End Role="Fabricante" Type="Self.Fabricante" Multiplicity="0..1" />
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fabricante">
+              <PropertyRef Name="IDFabricante" />
+            </Principal>
+            <Dependent Role="Vehiculo">
+              <PropertyRef Name="IDFabricante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pais__IDRegionCo__5812160E">
+          <End Role="RegionContinente" Type="Self.RegionContinente" Multiplicity="0..1" />
+          <End Role="Pais" Type="Self.Pai" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegionContinente">
+              <PropertyRef Name="IDRegionContinente" />
+            </Principal>
+            <Dependent Role="Pais">
+              <PropertyRef Name="IDRegionContinente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vehiculo__IDTipo__59FA5E80">
+          <End Role="TipoVehiculo" Type="Self.TipoVehiculo" Multiplicity="0..1" />
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoVehiculo">
+              <PropertyRef Name="IDTipoVehiculo" />
+            </Principal>
+            <Dependent Role="Vehiculo">
+              <PropertyRef Name="IDTipoVehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ExamenAnalisisEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cantons" EntityType="Self.Canton" />
+          <EntitySet Name="Continentes" EntityType="Self.Continente" />
+          <EntitySet Name="DiasFeriadosAnuales" EntityType="Self.DiasFeriadosAnuale" />
+          <EntitySet Name="Distritoes" EntityType="Self.Distrito" />
+          <EntitySet Name="Estacionamientoes" EntityType="Self.Estacionamiento" />
+          <EntitySet Name="Fabricantes" EntityType="Self.Fabricante" />
+          <EntitySet Name="Pais" EntityType="Self.Pai" />
+          <EntitySet Name="Parqueos" EntityType="Self.Parqueo" />
+          <EntitySet Name="Provincias" EntityType="Self.Provincia" />
+          <EntitySet Name="RegionContinentes" EntityType="Self.RegionContinente" />
+          <EntitySet Name="TipoVehiculoes" EntityType="Self.TipoVehiculo" />
+          <EntitySet Name="Vehiculoes" EntityType="Self.Vehiculo" />
+          <AssociationSet Name="FK__Canton__IDProvin__5BE2A6F2" Association="Self.FK__Canton__IDProvin__5BE2A6F2">
+            <End Role="Provincia" EntitySet="Provincias" />
+            <End Role="Canton" EntitySet="Cantons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Distrito__5CD6CB2B" Association="Self.FK__Distrito__5CD6CB2B">
+            <End Role="Canton" EntitySet="Cantons" />
+            <End Role="Distrito" EntitySet="Distritoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegionCon__IDCon__571DF1D5" Association="Self.FK__RegionCon__IDCon__571DF1D5">
+            <End Role="Continente" EntitySet="Continentes" />
+            <End Role="RegionContinente" EntitySet="RegionContinentes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Parqueo__Consecu__5DCAEF64" Association="Self.FK__Parqueo__Consecu__5DCAEF64">
+            <End Role="Distrito" EntitySet="Distritoes" />
+            <End Role="Parqueo" EntitySet="Parqueos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estaciona__IDPar__5FB337D6" Association="Self.FK__Estaciona__IDPar__5FB337D6">
+            <End Role="Parqueo" EntitySet="Parqueos" />
+            <End Role="Estacionamiento" EntitySet="Estacionamientoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estaciona__IDVeh__5EBF139D" Association="Self.FK__Estaciona__IDVeh__5EBF139D">
+            <End Role="Vehiculo" EntitySet="Vehiculoes" />
+            <End Role="Estacionamiento" EntitySet="Estacionamientoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Fabricant__IDPai__59063A47" Association="Self.FK__Fabricant__IDPai__59063A47">
+            <End Role="Pais" EntitySet="Pais" />
+            <End Role="Fabricante" EntitySet="Fabricantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vehiculo__IDFabr__5AEE82B9" Association="Self.FK__Vehiculo__IDFabr__5AEE82B9">
+            <End Role="Fabricante" EntitySet="Fabricantes" />
+            <End Role="Vehiculo" EntitySet="Vehiculoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pais__IDRegionCo__5812160E" Association="Self.FK__Pais__IDRegionCo__5812160E">
+            <End Role="RegionContinente" EntitySet="RegionContinentes" />
+            <End Role="Pais" EntitySet="Pais" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vehiculo__IDTipo__59FA5E80" Association="Self.FK__Vehiculo__IDTipo__59FA5E80">
+            <End Role="TipoVehiculo" EntitySet="TipoVehiculoes" />
+            <End Role="Vehiculo" EntitySet="Vehiculoes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ExamenAnalisisModelStoreContainer" CdmEntityContainer="ExamenAnalisisEntities">
+          <EntitySetMapping Name="Cantons">
+            <EntityTypeMapping TypeName="ExamenAnalisisModel.Canton">
+              <MappingFragment StoreEntitySet="Canton">
+                <ScalarProperty Name="IDProvincia" ColumnName="IDProvincia" />
+                <ScalarProperty Name="IDCanton" ColumnName="IDCanton" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Continentes">
+            <EntityTypeMapping TypeName="ExamenAnalisisModel.Continente">
+              <MappingFragment StoreEntitySet="Continente">
+                <ScalarProperty Name="IDContinente" ColumnName="IDContinente" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DiasFeriadosAnuales">
+            <EntityTypeMapping TypeName="ExamenAnalisisModel.DiasFeriadosAnuale">
+              <MappingFragment StoreEntitySet="DiasFeriadosAnuales">
+                <ScalarProperty Name="IdDiaFeriado" ColumnName="IdDiaFeriado" />
+                <ScalarProperty Name="MesFeriado" ColumnName="MesFeriado" />
+                <ScalarProperty Name="DiaFeriado" ColumnName="DiaFeriado" />
+                <ScalarProperty Name="NombreFeriado" ColumnName="NombreFeriado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Distritoes">
+            <EntityTypeMapping TypeName="ExamenAnalisisModel.Distrito">
+              <MappingFragment StoreEntitySet="Distrito">
+                <ScalarProperty Name="ConsecutivoDistrito" ColumnName="ConsecutivoDistrito" />
+                <ScalarProperty Name="IDProvincia" ColumnName="IDProvincia" />
+                <ScalarProperty Name="IDCanton" ColumnName="IDCanton" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estacionamientoes">
+            <EntityTypeMapping TypeName="ExamenAnalisisModel.Estacionamiento">
+              <MappingFragment StoreEntitySet="Estacionamiento">
+                <ScalarProperty Name="IDParqueo" ColumnName="IDParqueo" />
+                <ScalarProperty Name="IDVehiculo" ColumnName="IDVehiculo" />
+                <ScalarProperty Name="FechaHoraIngreso" ColumnName="FechaHoraIngreso" />
+                <ScalarProperty Name="FechaHoraSalida" ColumnName="FechaHoraSalida" />
+                <ScalarProperty Name="TarifaBase" ColumnName="TarifaBase" />
+                <ScalarProperty Name="Ganancia" ColumnName="Ganancia" />
+                <ScalarProperty Name="Mantenimiento" ColumnName="Mantenimiento" />
+                <ScalarProperty Name="ImpVentas" ColumnName="ImpVentas" />
+                <ScalarProperty Name="TotalACobrar" ColumnName="TotalACobrar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fabricantes">
+            <EntityTypeMapping TypeName="ExamenAnalisisModel.Fabricante">
+              <MappingFragment StoreEntitySet="Fabricante">
+                <ScalarProperty Name="IDFabricante" ColumnName="IDFabricante" />
+                <ScalarProperty Name="NombreFabricante" ColumnName="NombreFabricante" />
+                <ScalarProperty Name="IDPais" ColumnName="IDPais" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pais">
+            <EntityTypeMapping TypeName="ExamenAnalisisModel.Pai">
+              <MappingFragment StoreEntitySet="Pais">
+                <ScalarProperty Name="IDPais" ColumnName="IDPais" />
+                <ScalarProperty Name="NombrePais" ColumnName="NombrePais" />
+                <ScalarProperty Name="AbreviaturaPais" ColumnName="AbreviaturaPais" />
+                <ScalarProperty Name="IDRegionContinente" ColumnName="IDRegionContinente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parqueos">
+            <EntityTypeMapping TypeName="ExamenAnalisisModel.Parqueo">
+              <MappingFragment StoreEntitySet="Parqueo">
+                <ScalarProperty Name="IDParqueo" ColumnName="IDParqueo" />
+                <ScalarProperty Name="ConsecutivoDistrito" ColumnName="ConsecutivoDistrito" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provincias">
+            <EntityTypeMapping TypeName="ExamenAnalisisModel.Provincia">
+              <MappingFragment StoreEntitySet="Provincia">
+                <ScalarProperty Name="IDProvincia" ColumnName="IDProvincia" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegionContinentes">
+            <EntityTypeMapping TypeName="ExamenAnalisisModel.RegionContinente">
+              <MappingFragment StoreEntitySet="RegionContinente">
+                <ScalarProperty Name="IDRegionContinente" ColumnName="IDRegionContinente" />
+                <ScalarProperty Name="IDContinente" ColumnName="IDContinente" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoVehiculoes">
+            <EntityTypeMapping TypeName="ExamenAnalisisModel.TipoVehiculo">
+              <MappingFragment StoreEntitySet="TipoVehiculo">
+                <ScalarProperty Name="IDTipoVehiculo" ColumnName="IDTipoVehiculo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehiculoes">
+            <EntityTypeMapping TypeName="ExamenAnalisisModel.Vehiculo">
+              <MappingFragment StoreEntitySet="Vehiculo">
+                <ScalarProperty Name="IDVehiculo" ColumnName="IDVehiculo" />
+                <ScalarProperty Name="Placa" ColumnName="Placa" />
+                <ScalarProperty Name="Ano" ColumnName="Ano" />
+                <ScalarProperty Name="IDTipoVehiculo" ColumnName="IDTipoVehiculo" />
+                <ScalarProperty Name="IDFabricante" ColumnName="IDFabricante" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
