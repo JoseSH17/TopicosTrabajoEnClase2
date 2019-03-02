@@ -24,7 +24,7 @@ namespace Estacionamientos.Model
         public string NombreFabricante { get; set; }
         public Nullable<decimal> IDPais { get; set; }
     
-        public virtual Pai Pai { get; set; }
+        public virtual Pais Pais { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Vehiculo> Vehiculoes { get; set; }
     }

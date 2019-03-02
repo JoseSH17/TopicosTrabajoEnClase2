@@ -12,30 +12,26 @@ namespace Estacionamientos.Model
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+
     public partial class ExamenAnalisisEntities : DbContext
     {
         public ExamenAnalisisEntities()
             : base("name=ExamenAnalisisEntities")
         {
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
-        public virtual DbSet<Canton> Cantons { get; set; }
-        public virtual DbSet<Continente> Continentes { get; set; }
-        public virtual DbSet<DiasFeriadosAnuale> DiasFeriadosAnuales { get; set; }
-        public virtual DbSet<Distrito> Distritos { get; set; }
-        public virtual DbSet<Estacionamiento> Estacionamientoes { get; set; }
-        public virtual DbSet<Fabricante> Fabricantes { get; set; }
-        public virtual DbSet<Pai> Pais { get; set; }
-        public virtual DbSet<Parqueo> Parqueos { get; set; }
-        public virtual DbSet<Provincia> Provincias { get; set; }
-        public virtual DbSet<RegionContinente> RegionContinentes { get; set; }
-        public virtual DbSet<TipoVehiculo> TipoVehiculoes { get; set; }
-        public virtual DbSet<Vehiculo> Vehiculoes { get; set; }
+
+        public virtual DbSet<Continente> Continente { get; set; }
+        public virtual DbSet<Fabricante> Fabricante { get; set; }
+        public virtual DbSet<Pais> Pais { get; set; }
+        public virtual DbSet<Parqueo> parqueo { get; set; }
+        public virtual DbSet<RegionContinente> RegionContinente  { get; set; }
+        public virtual DbSet<TipoVehiculo> TipoVehiculo { get; set; }
+        public virtual DbSet<Vehiculo> Vehiculo { get; set; }
+
     }
 }
