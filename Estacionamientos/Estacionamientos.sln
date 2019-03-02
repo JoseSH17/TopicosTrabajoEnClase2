@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Estacionamientos", "Estacio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Estacionamientos.Model", "Estacionamientos.Model\Estacionamientos.Model.csproj", "{76119EAE-C524-4EE0-B2F8-BBE94674CDE0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF", "WCF\WCF.csproj", "{F18AC058-7394-4A4B-825A-9D6327D02467}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{D21A80D9-375B-4B63-8338-982304B8215C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +25,19 @@ Global
 		{76119EAE-C524-4EE0-B2F8-BBE94674CDE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76119EAE-C524-4EE0-B2F8-BBE94674CDE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76119EAE-C524-4EE0-B2F8-BBE94674CDE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F18AC058-7394-4A4B-825A-9D6327D02467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F18AC058-7394-4A4B-825A-9D6327D02467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F18AC058-7394-4A4B-825A-9D6327D02467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F18AC058-7394-4A4B-825A-9D6327D02467}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D21A80D9-375B-4B63-8338-982304B8215C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D21A80D9-375B-4B63-8338-982304B8215C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D21A80D9-375B-4B63-8338-982304B8215C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D21A80D9-375B-4B63-8338-982304B8215C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31132FD2-F704-437A-8ACB-52924D32BFAA}
 	EndGlobalSection
 EndGlobal
