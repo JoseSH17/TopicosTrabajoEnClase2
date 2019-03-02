@@ -83,10 +83,18 @@
     <Compile Include="Fabricante.cs">
       <DependentUpon>DataEstacionamientos.tt</DependentUpon>
     </Compile>
+    <Compile Include="MisClases\Canton.cs" />
+    <Compile Include="MisClases\Continente.cs" />
+    <Compile Include="MisClases\Distrito.cs" />
     <Compile Include="MisClases\Fabricante.cs" />
     <Compile Include="MisClases\Feriados\DiasFeriados.cs" />
     <Compile Include="MisClases\Estacionamiento.cs" />
     <Compile Include="MisClases\Feriados\DiasFeriadosAnuale.cs" />
+    <Compile Include="MisClases\Pai.cs" />
+    <Compile Include="MisClases\Parqueo.cs" />
+    <Compile Include="MisClases\Provincia.cs" />
+    <Compile Include="MisClases\RegionContinente.cs" />
+    <Compile Include="MisClases\Vehiculo.cs" />
     <Compile Include="Pai.cs">
       <DependentUpon>DataEstacionamientos.tt</DependentUpon>
     </Compile>
