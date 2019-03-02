@@ -28,7 +28,7 @@ namespace Estacionamientos.Model
         public virtual DbSet<Canton> Cantons { get; set; }
         public virtual DbSet<Continente> Continentes { get; set; }
         public virtual DbSet<DiasFeriadosAnuale> DiasFeriadosAnuales { get; set; }
-        public virtual DbSet<Distrito> Distritos { get; set; }
+        public virtual DbSet<Distrito> Distritoes { get; set; }
         public virtual DbSet<Estacionamiento> Estacionamientoes { get; set; }
         public virtual DbSet<Fabricante> Fabricantes { get; set; }
         public virtual DbSet<Pai> Pais { get; set; }
