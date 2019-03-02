@@ -23,7 +23,7 @@ namespace Estacionamientos.Model
                     if (fechaIngreso.Month == fechaSalida.Value.Month && fechaIngreso.Day == fechaSalida.Value.Day)
                     {
                         //Si son el mismo dia, se usa cualquiera para comparar.
-                        
+                        diaFeriado = "El feriado de FechaIngreso y de FechaSalida es: " + ValidarFeriadoxFecha(fechaIngreso);
                     } else
                     {
                         diaFeriado = "El feriado de FechaIngreso es: " + ValidarFeriadoxFecha(fechaIngreso) + ", y el de FechaSalida es: " + ValidarFeriadoxFecha(fechaSalida.Value);

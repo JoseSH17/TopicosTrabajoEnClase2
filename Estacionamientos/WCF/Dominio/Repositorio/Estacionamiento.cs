@@ -11,11 +11,17 @@ namespace WCF.Dominio.Repositorio
 
         static private ExamenAnalisisEntities _contexto = new ExamenAnalisisEntities();
 
-        internal IList<Estacionamiento> ListarRegistrosPorRangoDeFechas(DateTime PrimeraFecha, DateTime SegundaFecha)
+        public Estacionamiento()
+        {
+            _contexto.Configuration.ProxyCreationEnabled = false;
+            _contexto.Configuration.LazyLoadingEnabled = true;
+        }
+
+        internal List<Estacionamiento> ListarRegistrosPorRangoDeFechas(DateTime PrimeraFecha, DateTime SegundaFecha)
         {
             IList<Estacionamiento> elResultado = new List<Estacionamiento>();
             elResultado = _contexto.Estacionamientoes.Where(
-                p => PrimeraFecha <= p.FechaHoraIngreso && p.FechaHoraIngreso <= SegundaFecha).OrderByDescending(o => o.IDParqueo).ToList();
+                p => PrimeraFecha <= p.FechaHoraIngreso && p.FechaHoraSalida <= SegundaFecha).OrderByDescending(o => o.IDParqueo).ToList();
             var elNuevoResultado = elResultado;
             return elNuevoResultado;
         }
