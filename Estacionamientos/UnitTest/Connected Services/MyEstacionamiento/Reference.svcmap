@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4a647add-5f87-415e-b5c7-95f156a82953" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:60045/Dominio/Servicio/MyEstacionamiento.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MyEstacionamiento.xsd" MetadataType="Schema" ID="fc071782-bb4f-42bb-8403-9fb23df248f4" SourceId="1" SourceUrl="http://localhost:60045/Dominio/Servicio/MyEstacionamiento.svc?xsd=xsd1" />
+    <MetadataFile FileName="MyEstacionamiento.disco" MetadataType="Disco" ID="6901e98a-7d95-4382-bc59-0d7f03776b38" SourceId="1" SourceUrl="http://localhost:60045/Dominio/Servicio/MyEstacionamiento.svc?disco" />
+    <MetadataFile FileName="MyEstacionamiento1.xsd" MetadataType="Schema" ID="7e9fa34b-269c-4233-aef2-f02ace94443b" SourceId="1" SourceUrl="http://localhost:60045/Dominio/Servicio/MyEstacionamiento.svc?xsd=xsd3" />
+    <MetadataFile FileName="MyEstacionamiento2.xsd" MetadataType="Schema" ID="73292eb9-3a16-4f94-a4a0-ea0036c27cca" SourceId="1" SourceUrl="http://localhost:60045/Dominio/Servicio/MyEstacionamiento.svc?xsd=xsd2" />
+    <MetadataFile FileName="MyEstacionamiento.wsdl" MetadataType="Wsdl" ID="f00e776d-db5c-4468-b8de-5e540a7b67c0" SourceId="1" SourceUrl="http://localhost:60045/Dominio/Servicio/MyEstacionamiento.svc?wsdl" />
+    <MetadataFile FileName="MyEstacionamiento3.xsd" MetadataType="Schema" ID="14f4e15c-844b-42cd-876d-2e69c5454eea" SourceId="1" SourceUrl="http://localhost:60045/Dominio/Servicio/MyEstacionamiento.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

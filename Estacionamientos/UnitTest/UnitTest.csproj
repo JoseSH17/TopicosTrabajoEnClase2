@@ -47,13 +47,58 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\MyEstacionamiento\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Connected Services\MyEstacionamiento\MyEstacionamiento.wsdl" />
+    <None Include="Connected Services\MyEstacionamiento\MyEstacionamiento.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MyEstacionamiento\MyEstacionamiento1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MyEstacionamiento\MyEstacionamiento2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MyEstacionamiento\MyEstacionamiento3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Estacionamientos.Model.Estacionamiento.datasource" />
+    <None Include="Properties\DataSources\WCF.CompositeType.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\MyEstacionamiento\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MyEstacionamiento\MyEstacionamiento.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MyEstacionamiento\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MyEstacionamiento\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MyEstacionamiento\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Estacionamientos.Model\Estacionamientos.Model.csproj">

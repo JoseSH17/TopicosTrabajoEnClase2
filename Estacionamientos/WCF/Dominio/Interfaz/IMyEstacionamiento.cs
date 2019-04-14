@@ -1,25 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
-using Estacionamientos;
 using Estacionamientos.Model;
 
 namespace WCF
 {
-    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IService1" en el código y en el archivo de configuración a la vez.
+    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IMyEstacionamiento" en el código y en el archivo de configuración a la vez.
     [ServiceContract]
-    public interface IService1
+    public interface IMyEstacionamiento
     {
-
         [OperationContract]
         IList<Estacionamiento> ListarRegistrosPorRangoDeFechas(DateTime PrimeraFecha, DateTime SegundaFecha);
+
         [OperationContract]
         IList<Estacionamiento> ListarRegistrosPorProvincia(int IDProvincia);
-
 
         [OperationContract]
         string GetData(int value);

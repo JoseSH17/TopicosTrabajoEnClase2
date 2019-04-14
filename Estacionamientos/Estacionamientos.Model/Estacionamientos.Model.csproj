@@ -52,7 +52,6 @@
     <Compile Include="Canton.cs">
       <DependentUpon>DataEstacionamientos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="Continente.cs">
       <DependentUpon>DataEstacionamientos.tt</DependentUpon>
     </Compile>

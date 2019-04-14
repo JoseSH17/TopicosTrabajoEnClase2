@@ -13,6 +13,7 @@ namespace Estacionamientos.Model
         Pai pais = new Pai();
         RegionContinente regionContinente = new RegionContinente();
         Continente continente = new Continente();
+        TipoVehiculo tipoVehiculo = new TipoVehiculo();
         [DataMember]
         public string NombreFabricante
         {
@@ -63,6 +64,35 @@ namespace Estacionamientos.Model
                     && continente.IDContinente.Equals(regionContinente.IDContinente))
                     nombreContinente = continente.Descripcion;
                 return nombreContinente;
+            }
+            set { }
+        }
+
+        [DataMember]
+        public string NombreTipoVehiculo
+        {
+            get
+            {
+                string nombreTipoVehiculo = "";
+                if (tipoVehiculo.IDTipoVehiculo.Equals(TipoVehiculo))
+                    nombreTipoVehiculo = fabricante.NombreFabricante;
+                return nombreTipoVehiculo;
+            }
+            set { }
+        }
+
+        [DataMember]
+        public decimal AntiguedadVehiculo
+        {
+            get
+            {
+                decimal antiguedad = 0;
+                decimal anioFabricacion = Ano.Value;
+                if(anioFabricacion != 0)
+                {
+                    antiguedad = DateTime.Now.Year - anioFabricacion;
+                }
+                return antiguedad;
             }
             set { }
         }

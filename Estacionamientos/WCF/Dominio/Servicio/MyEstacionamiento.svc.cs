@@ -11,7 +11,7 @@ namespace WCF
 {
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Service1" en el código, en svc y en el archivo de configuración.
     // NOTE: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione Service1.svc o Service1.svc.cs en el Explorador de soluciones e inicie la depuración.
-    public class Service1 : IService1
+    public class MyEstacionamiento : IMyEstacionamiento
     {
         public string GetData(int value)
         {
@@ -33,12 +33,18 @@ namespace WCF
 
         public IList<Estacionamiento> ListarRegistrosPorProvincia(int IDProvincia)
         {
-            throw new NotImplementedException();
+
+            var laEspecificacion = new Dominio.Especificacion.Estacionamientos();
+            var elResultado = laEspecificacion.ListarRegistrosPorProvincia(IDProvincia);
+            return elResultado;
+
         }
 
-        public IList<Estacionamiento> ListarRegistrosPorRangoDeFechas(DateTime PrimeraFecha, DateTime SegundaFecha)
+        public IList<Estacionamiento> ListarRegistrosPorRangoDeFechas(DateTime fechaInicio, DateTime fechaFin)
         {
-            throw new NotImplementedException();
+            var laEspecificacion = new Dominio.Especificacion.Estacionamientos();
+            var elResultado = laEspecificacion.ListarRegistrosPorRangoDeFecha(fechaInicio, fechaFin);
+            return elResultado;
         }
     }
 }

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Estacionamientos.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Estacionamientos.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfEstacionamiento">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Estacionamiento" nillable="true" type="tns:Estacionamiento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEstacionamiento" nillable="true" type="tns:ArrayOfEstacionamiento" />
+  <xs:complexType name="Estacionamiento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FechaHoraIngreso" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaHoraSalida" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Feriados" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ganancia" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IDParqueo" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IDVehiculo" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ImpVentas" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Mantenimiento" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Parqueo" nillable="true" type="tns:Parqueo" />
+      <xs:element minOccurs="0" name="TarifaBase" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TiempoEstacionado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalACobrar" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Vehiculo" nillable="true" type="tns:Vehiculo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Estacionamiento" nillable="true" type="tns:Estacionamiento" />
+  <xs:complexType name="Parqueo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConsecutivoDistrito" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Distrito" nillable="true" type="tns:Distrito" />
+      <xs:element minOccurs="0" name="Estacionamientoes" nillable="true" type="tns:ArrayOfEstacionamiento" />
+      <xs:element minOccurs="0" name="IDParqueo" type="xs:decimal" />
+      <xs:element minOccurs="0" name="NombreCanton" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreDistrito" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreProvincia" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Parqueo" nillable="true" type="tns:Parqueo" />
+  <xs:complexType name="Distrito">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Canton" nillable="true" type="tns:Canton" />
+      <xs:element minOccurs="0" name="ConsecutivoDistrito" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDCanton" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IDProvincia" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Parqueos" nillable="true" type="tns:ArrayOfParqueo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Distrito" nillable="true" type="tns:Distrito" />
+  <xs:complexType name="Canton">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Distritoes" nillable="true" type="tns:ArrayOfDistrito" />
+      <xs:element minOccurs="0" name="IDCanton" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IDProvincia" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Provincia" nillable="true" type="tns:Provincia" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Canton" nillable="true" type="tns:Canton" />
+  <xs:complexType name="ArrayOfDistrito">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Distrito" nillable="true" type="tns:Distrito" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDistrito" nillable="true" type="tns:ArrayOfDistrito" />
+  <xs:complexType name="Provincia">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cantons" nillable="true" type="tns:ArrayOfCanton" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDProvincia" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Provincia" nillable="true" type="tns:Provincia" />
+  <xs:complexType name="ArrayOfCanton">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Canton" nillable="true" type="tns:Canton" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCanton" nillable="true" type="tns:ArrayOfCanton" />
+  <xs:complexType name="ArrayOfParqueo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Parqueo" nillable="true" type="tns:Parqueo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfParqueo" nillable="true" type="tns:ArrayOfParqueo" />
+  <xs:complexType name="Vehiculo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ano" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="AntiguedadVehiculo" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Estacionamientoes" nillable="true" type="tns:ArrayOfEstacionamiento" />
+      <xs:element minOccurs="0" name="Fabricante" nillable="true" type="tns:Fabricante" />
+      <xs:element minOccurs="0" name="IDFabricante" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IDTipoVehiculo" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IDVehiculo" type="xs:decimal" />
+      <xs:element minOccurs="0" name="NombreContinente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreFabricante" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombrePais" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreRegionContinente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreTipoVehiculo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Placa" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TipoVehiculo" nillable="true" type="tns:TipoVehiculo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Vehiculo" nillable="true" type="tns:Vehiculo" />
+  <xs:complexType name="Fabricante">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IDFabricante" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IDPais" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="NombreFabricante" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pai" nillable="true" type="tns:Pai" />
+      <xs:element minOccurs="0" name="Vehiculoes" nillable="true" type="tns:ArrayOfVehiculo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Fabricante" nillable="true" type="tns:Fabricante" />
+  <xs:complexType name="Pai">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AbreviaturaPais" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fabricantes" nillable="true" type="tns:ArrayOfFabricante" />
+      <xs:element minOccurs="0" name="IDPais" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IDRegionContinente" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="NombrePais" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegionContinente" nillable="true" type="tns:RegionContinente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Pai" nillable="true" type="tns:Pai" />
+  <xs:complexType name="ArrayOfFabricante">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Fabricante" nillable="true" type="tns:Fabricante" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFabricante" nillable="true" type="tns:ArrayOfFabricante" />
+  <xs:complexType name="RegionContinente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Continente" nillable="true" type="tns:Continente" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDContinente" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IDRegionContinente" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Pais" nillable="true" type="tns:ArrayOfPai" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegionContinente" nillable="true" type="tns:RegionContinente" />
+  <xs:complexType name="Continente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDContinente" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RegionContinentes" nillable="true" type="tns:ArrayOfRegionContinente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Continente" nillable="true" type="tns:Continente" />
+  <xs:complexType name="ArrayOfRegionContinente">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RegionContinente" nillable="true" type="tns:RegionContinente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRegionContinente" nillable="true" type="tns:ArrayOfRegionContinente" />
+  <xs:complexType name="ArrayOfPai">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Pai" nillable="true" type="tns:Pai" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPai" nillable="true" type="tns:ArrayOfPai" />
+  <xs:complexType name="ArrayOfVehiculo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Vehiculo" nillable="true" type="tns:Vehiculo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVehiculo" nillable="true" type="tns:ArrayOfVehiculo" />
+  <xs:complexType name="TipoVehiculo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDTipoVehiculo" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Vehiculoes" nillable="true" type="tns:ArrayOfVehiculo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TipoVehiculo" nillable="true" type="tns:TipoVehiculo" />
+</xs:schema>
